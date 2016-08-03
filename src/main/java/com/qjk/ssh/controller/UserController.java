@@ -53,7 +53,7 @@ public class UserController {
 	
 	
 	
-	@RequestMapping(value="{id}/update",method=RequestMethod.GET)
+	@RequestMapping(value="/{id}/update",method=RequestMethod.GET)
 	public String update(Model model,@PathVariable long id){
 		User user = userService.findUserById(id);
 		if(user == null){
@@ -63,7 +63,7 @@ public class UserController {
 		return "user/update";
 	}
 	
-	@RequestMapping(value="{id}/update",method=RequestMethod.POST)
+	@RequestMapping(value="/{id}/update",method=RequestMethod.POST)
 	public String update(@Validated User user,BindingResult result){
 		if(result.hasErrors()){
 			return "user/update";
@@ -72,7 +72,7 @@ public class UserController {
 		return "redirect:/user/users";
 	}
 	
-	@RequestMapping(value="{id}/delete",method=RequestMethod.GET)
+	@RequestMapping(value="/{id}/delete",method=RequestMethod.GET)
 	public String delete(@PathVariable long id){
 		User u = new User();
 		u.setUid(id);
@@ -80,7 +80,7 @@ public class UserController {
 		return "redirect:/user/users";
 	}
 	
-	@RequestMapping(value="{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/{id}",method=RequestMethod.GET)
 	public String show(@PathVariable long id,Model model){
 		model.addAttribute(userService.findUserById(id));
 		return "user/show";
@@ -92,7 +92,7 @@ public class UserController {
 //		model.addAttribute(list.get(phone));
 		return userService.findUserById(id);
 	}
-	@RequestMapping(value="{id}",method=RequestMethod.GET,params={"json"})
+	@RequestMapping(value="/{id}",method=RequestMethod.GET,params={"json"})
 	@ResponseBody
 	public User show(@PathVariable long id,String json){
 		//model.addAttribute(list.get(phone));
