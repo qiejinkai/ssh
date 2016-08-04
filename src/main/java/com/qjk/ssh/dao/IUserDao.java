@@ -2,11 +2,12 @@ package com.qjk.ssh.dao;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.qjk.ssh.data.User;
 
-@Transactional
+@Transactional(propagation=Propagation.SUPPORTS)
 public interface IUserDao {
 
 	public void addUser(User user);

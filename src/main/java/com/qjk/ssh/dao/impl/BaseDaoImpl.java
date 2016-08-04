@@ -29,7 +29,7 @@ public class BaseDaoImpl<T> {
 	}
 
 	protected T findById(Class<? extends T> clazz,Serializable id) {
-		return this.getSession().get(clazz, id);
+		return this.getSession().load(clazz, id);
 	}
 
 	protected void delete(Class<? extends T> clazz,Serializable id) {

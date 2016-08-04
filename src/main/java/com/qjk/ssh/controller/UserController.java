@@ -82,7 +82,10 @@ public class UserController {
 	
 	@RequestMapping(value="/{id}",method=RequestMethod.GET)
 	public String show(@PathVariable long id,Model model){
-		model.addAttribute(userService.findUserById(id));
+		User user = userService.findUserById(id);
+
+		System.out.println("123412512312");
+		model.addAttribute(user);
 		return "user/show";
 	}
 

@@ -45,7 +45,7 @@ public class UserServiceImpl implements IUserService {
 
 	public User findUserById(long id) {
 		User user = userDao.findUserById(id);
-		user.setPassword(null);
+		//user.setPassword(null);
 		return user;
 
 	}
